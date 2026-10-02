@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Virtual Classroom · Download APK</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at 20% 10%, #0a1f3d 0%, #051024 60%, #020814 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      color: #e8f0ff;
+    }
+
+    /* main glass card */
+    .download-card {
+      background: rgba(12, 30, 60, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(100, 170, 255, 0.25);
+      border-radius: 3rem;
+      padding: 3rem 2.5rem;
+      max-width: 760px;
+      width: 100%;
+      box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.9),
+                  0 0 0 1px rgba(80, 160, 255, 0.15) inset;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .download-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 45px 75px -18px #000, 0 0 0 1px rgba(80, 160, 255, 0.35) inset;
+    }
+
+    /* header row */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, #3a8dff, #1c4ecc);
+      width: 76px;
+      height: 76px;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 24px -8px #1c4ecc;
+      border: 2px solid #7ab7ff;
+      flex-shrink: 0;
+    }
+
+    .logo-icon i {
+      font-size: 2.9rem;
+      color: #fff;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .app-title h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #ffffff, #b8d6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.15;
+    }
+
+    .app-title .subhead {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #94b8e8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .subhead i {
+      color: #4a9eff;
+      font-size: 0.9rem;
+    }
+
+    /* course badge */
+    .course-badge {
+      display: inline-block;
+      background: rgba(74, 158, 255, 0.15);
+      border: 1px solid rgba(74, 158, 255, 0.4);
+      padding: 0.3rem 1.1rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      color: #b3d4ff;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+
+    /* the three questions / workflows */
+    .questions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 2rem;
+      margin: 2rem 0 1.5rem;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(74, 158, 255, 0.25);
+      border-bottom: 1px solid rgba(74, 158, 255, 0.25);
+    }
+
+    .q-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #d6e6ff;
+      font-weight: 500;
+      font-size: 1.05rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.4rem 1rem;
+      border-radius: 60px;
+      border: 1px solid rgba(74, 158, 255, 0.15);
+      transition: background 0.2s;
+    }
+
+    .q-item:hover {
+      background: rgba(74, 158, 255, 0.1);
+    }
+
+    .q-item i {
+      color: #4a9eff;
+      font-size: 1.25rem;
+      width: 1.6rem;
+      text-align: center;
+    }
+
+    /* description */
+    .description {
+      text-align: center;
+      color: #bfd6f5;
+      font-size: 1rem;
+      line-height: 1.65;
+      margin: 1.2rem 0 2rem;
+      padding: 0 0.5rem;
+    }
+
+    .description strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .description .highlight {
+      color: #7ab7ff;
+      font-weight: 600;
+    }
+
+    /* tech tags */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1.2rem;
+      margin-bottom: 2rem;
+      color: #8bb0e0;
+      font-size: 0.85rem;
+    }
+
+    .tech-stack span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.25rem 0.9rem;
+      border-radius: 50px;
+      border: 1px solid rgba(74, 158, 255, 0.12);
+    }
+
+    .tech-stack i {
+      color: #4a9eff;
+    }
+
+    /* download area */
+    .download-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .btn-download {
+      background: linear-gradient(145deg, #2f80ff, #1a5cd8);
+      border: none;
+      padding: 1.2rem 3rem;
+      border-radius: 80px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+      box-shadow: 0 18px 30px -10px #0a1f50, 0 0 0 2px rgba(120, 190, 255, 0.4) inset;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .btn-download i {
+      font-size: 1.9rem;
+      transition: transform 0.2s;
+    }
+
+    .btn-download:hover {
+      background: linear-gradient(145deg, #4a94ff, #2266e0);
+      box-shadow: 0 22px 38px -8px #0a1f50, 0 0 0 2px rgba(160, 210, 255, 0.6) inset;
+      transform: translateY(-3px);
+    }
+
+    .btn-download:hover i {
+      transform: translateY(4px);
+    }
+
+    .btn-download:active {
+      transform: translateY(2px);
+      box-shadow: 0 8px 15px -5px #0a1f50, 0 0 0 2px rgba(120, 190, 255, 0.5) inset;
+    }
+
+    /* file info */
+    .file-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      color: #a8c6f0;
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.55rem 1.6rem;
+      border-radius: 50px;
+      border: 1px solid rgba(74, 158, 255, 0.25);
+      width: fit-content;
+      margin: 0.3rem auto 0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .file-info:hover {
+      background: rgba(74, 158, 255, 0.15);
+    }
+
+    .file-info i {
+      color: #4a9eff;
+    }
+
+    /* path note */
+    .path-note {
+      text-align: center;
+      color: #6e8db5;
+      font-size: 0.82rem;
+      margin-top: 1.8rem;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-top: 1px solid rgba(74, 158, 255, 0.12);
+      padding-top: 1.5rem;
+    }
+
+    .path-note i {
+      color: #4a9eff;
+      opacity: 0.8;
+    }
+
+    /* team footer */
+    .team-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1rem;
+      margin-top: 1.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(74, 158, 255, 0.1);
+      font-size: 0.75rem;
+      color: #5e7ea8;
+      text-align: center;
+    }
+
+    .team-footer span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .team-footer i {
+      color: #3a7bd5;
+      font-size: 0.7rem;
+    }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .download-card {
+        padding: 2rem 1.4rem;
+        border-radius: 2.2rem;
+      }
+
+      .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+      }
+
+      .app-title h1 {
+        font-size: 1.9rem;
+      }
+
+      .questions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .q-item {
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn-download {
+        font-size: 1.2rem;
+        padding: 1.1rem 1.8rem;
+      }
+
+      .btn-download i {
+        font-size: 1.6rem;
+      }
+
+      .file-info {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="download-card">
+    <!-- header -->
+    <div class="header">
+      <div class="logo-icon">
+        <i class="fas fa-chalkboard-user"></i>
+      </div>
+      <div class="app-title">
+        <h1>Smart Virtual Classroom</h1>
+        <div class="subhead">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Intelligent Attendance Management System</span>
+        </div>
+        <div class="course-badge">
+          <i class="fas fa-code-branch"></i> ICT 2140 · Group Project
+        </div>
+      </div>
+    </div>
+
+    <!-- the three questions / core workflows -->
+    <div class="questions">
+      <div class="q-item"><i class="fas fa-right-to-bracket"></i> Who is present?</div>
+      <div class="q-item"><i class="fas fa-clock"></i> How long did they stay?</div>
+      <div class="q-item"><i class="fas fa-chart-simple"></i> How did they participate?</div>
+    </div>
+
+    <!-- description -->
+    <div class="description">
+      <strong>Smart Virtual Classroom</strong> is an institution-focused platform that combines
+      live online teaching with <span class="highlight">identity-based attendance</span>,
+      participation verification, and academic reporting — all in one application.
+    </div>
+
+    <!-- tech stack -->
+    <div class="tech-stack">
+      <span><i class="fas fa-mobile-screen"></i> Flutter · Dart</span>
+      <span><i class="fas fa-bolt"></i> FastAPI · Python</span>
+      <span><i class="fas fa-database"></i> PostgreSQL</span>
+      <span><i class="fas fa-video"></i> WebRTC</span>
+      <span><i class="fas fa-plug"></i> WebSockets</span>
+    </div>
+
+    <!-- download button -->
+    <div class="download-area">
+      <button id="downloadBtn" class="btn-download">
+        <i class="fas fa-download"></i> Download APK
+      </button>
+      <div class="file-info" id="fileInfo">
+        <i class="fas fa-box-archive"></i>
+        <span>smart-virtual-classroom.apk · ~30 MB</span>
+      </div>
+    </div>
+
+    <!-- path note -->
+    <div class="path-note">
+      <i class="fas fa-folder-open"></i>
+      <span>APK is in the same folder as this page — click to download</span>
+    </div>
+
+    <!-- team footer -->
+    <div class="team-footer">
+      <span><i class="fas fa-user-tie"></i> Konga Mac-Bright (Scrum Master)</span>
+      <span><i class="fas fa-user-pen"></i> Ngameni Youdjeu Ethel Ryan (Product Owner)</span>
+      <span><i class="fas fa-server"></i> Mbah Favor Njei (Backend)</span>
+      <span><i class="fas fa-database"></i> Kemmalah Ravel (Database)</span>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const downloadBtn = document.getElementById('downloadBtn');
+      const fileInfo = document.getElementById('fileInfo');
+
+      // ⚠️ CHANGE THIS to match your actual APK filename in the same folder
+      const APK_FILENAME = 'smart-virtual-classroom.apk';
+
+      function triggerApkDownload() {
+        const link = document.createElement('a');
+        link.href = APK_FILENAME;
+        link.download = APK_FILENAME;
+        link.type = 'application/vnd.android.package-archive';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // brief visual feedback
+        const originalBtnHTML = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = '<i class="fas fa-check-circle"></i> Download started!';
+        downloadBtn.style.background = 'linear-gradient(145deg, #2fbf71, #1e8f4f)';
+        downloadBtn.style.color = '#ffffff';
+
+        setTimeout(() => {
+          downloadBtn.innerHTML = originalBtnHTML;
+          downloadBtn.style.background = 'linear-gradient(145deg, #2f80ff, #1a5cd8)';
+          downloadBtn.style.color = '#ffffff';
+        }, 2500);
+      }
+
+      downloadBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        triggerApkDownload();
+      });
+
+      // clicking the file-info area also triggers download
+      if (fileInfo) {
+        fileInfo.addEventListener('click', function (e) {
+          e.preventDefault();
+          triggerApkDownload();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
