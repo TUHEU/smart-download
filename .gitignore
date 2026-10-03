@@ -1,0 +1,4 @@
+# the APK is large — upload it to the server directly (scp) instead of committing it
+*.apk
+*.zip
+index.html.bak.*
